@@ -31,6 +31,18 @@
   .nav-links a { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,255,0.5); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--sky); }
 
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; z-index: 110; }
+  .hamburger div { width: 22px; height: 2px; background: var(--purple-light); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .hamburger.open div:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open div:nth-child(2) { opacity: 0; }
+  .hamburger.open div:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; background: rgba(18,10,32,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); z-index: 99; flex-direction: column; padding: 0.5rem 0; transform: translateY(-10px); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; }
+  .mobile-menu.open { transform: translateY(0); opacity: 1; }
+  .mobile-menu a { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,255,0.6); text-decoration: none; padding: 0.9rem 4vw; border-bottom: 1px solid rgba(168,85,247,0.1); transition: color 0.2s, background 0.2s; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--pink); background: rgba(255,61,166,0.05); }
+
   .hero { min-height: 100vh; display: flex; align-items: center; padding: 0 4vw; position: relative; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 60% 35%, rgba(168,85,247,0.22) 0%, transparent 60%), radial-gradient(ellipse 55% 50% at 15% 75%, rgba(255,61,166,0.18) 0%, transparent 55%), radial-gradient(ellipse 50% 45% at 90% 80%, rgba(56,212,245,0.12) 0%, transparent 50%); }
   .hero-bg::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(168,85,247,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(168,85,247,0.05) 1px, transparent 1px); background-size: 60px 60px; }
@@ -40,15 +52,7 @@
   .orb3 { width: 180px; height: 180px; background: rgba(168,85,247,0.2); top: 55%; right: 30%; animation-delay: -5s; }
   @keyframes float { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
 
-  /* HERO LAYOUT — text left, photo right, evenly spaced */
-  .hero-inner {
-    position: relative; z-index: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    width: 100%;
-    gap: 3rem;
-  }
+  .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; align-items: center; width: 100%; gap: 3rem; }
   .hero-content { max-width: 560px; }
   .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); border: 1px solid rgba(56,212,245,0.4); padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.8rem; animation: fadeUp 0.7s ease both; }
   .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sky); display: inline-block; animation: pulse 2s ease-in-out infinite; }
@@ -67,41 +71,12 @@
   .btn-outline { border: 1px solid rgba(56,212,245,0.4); color: var(--sky); }
   .btn-outline:hover { background: rgba(56,212,245,0.08); border-color: var(--sky); }
 
-  /* PHOTO */
-  .hero-photo-wrap {
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-    animation: fadeUp 0.7s 0.45s ease both;
-  }
-  .hero-photo-glow {
-    position: absolute;
-    width: 380px; height: 380px; border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(255,61,166,0.4) 0%, rgba(168,85,247,0.28) 40%, transparent 70%);
-    filter: blur(35px);
-    animation: glowPulse 4s ease-in-out infinite;
-  }
+  .hero-photo-wrap { display: flex; align-items: center; justify-content: center; position: relative; animation: fadeUp 0.7s 0.45s ease both; }
+  .hero-photo-glow { position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(255,61,166,0.4) 0%, rgba(168,85,247,0.28) 40%, transparent 70%); filter: blur(35px); animation: glowPulse 4s ease-in-out infinite; }
   @keyframes glowPulse { 0%,100%{opacity:0.8;transform:scale(1)} 50%{opacity:1;transform:scale(1.08)} }
-  .hero-photo {
-    position: relative; z-index: 2;
-    width: 300px; height: 300px;
-    border-radius: 24px;
-    object-fit: cover;
-    object-position: center top;
-    border: 1px solid rgba(255,61,166,0.45);
-    box-shadow: 0 0 0 1px rgba(168,85,247,0.3), 0 8px 40px rgba(255,61,166,0.25), 0 0 80px rgba(168,85,247,0.18);
-  }
-  .hero-photo-wrap::before {
-    content: ''; position: absolute; top: -10px; right: -10px;
-    width: 50px; height: 50px;
-    border-top: 2px solid var(--pink); border-right: 2px solid var(--pink);
-    border-radius: 0 8px 0 0; z-index: 3;
-  }
-  .hero-photo-wrap::after {
-    content: ''; position: absolute; bottom: -10px; left: -10px;
-    width: 50px; height: 50px;
-    border-bottom: 2px solid var(--purple-light); border-left: 2px solid var(--purple-light);
-    border-radius: 0 0 0 8px; z-index: 3;
-  }
+  .hero-photo { position: relative; z-index: 2; width: 300px; height: 300px; border-radius: 24px; object-fit: cover; object-position: center top; border: 1px solid rgba(255,61,166,0.45); box-shadow: 0 0 0 1px rgba(168,85,247,0.3), 0 8px 40px rgba(255,61,166,0.25), 0 0 80px rgba(168,85,247,0.18); }
+  .hero-photo-wrap::before { content: ''; position: absolute; top: -10px; right: -10px; width: 50px; height: 50px; border-top: 2px solid var(--pink); border-right: 2px solid var(--pink); border-radius: 0 8px 0 0; z-index: 3; }
+  .hero-photo-wrap::after { content: ''; position: absolute; bottom: -10px; left: -10px; width: 50px; height: 50px; border-bottom: 2px solid var(--purple-light); border-left: 2px solid var(--purple-light); border-radius: 0 0 0 8px; z-index: 3; }
 
   section { padding: 7rem 4vw; }
   .section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink); margin-bottom: 1rem; }
@@ -181,6 +156,9 @@
 
   @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .hero-photo-wrap { display: none; } }
   @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: flex; }
     #about { grid-template-columns: 1fr; gap: 3rem; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .edu-grid { grid-template-columns: 1fr; }
@@ -203,7 +181,18 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <div class="hamburger" id="hamburger">
+    <div></div><div></div><div></div>
+  </div>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#education" onclick="closeMenu()">Education</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -418,6 +407,16 @@
     el.addEventListener('mouseenter', () => { cursor.style.transform='translate(-50%,-50%) scale(2)'; cursor.style.background='var(--purple-light)'; ring.style.width='56px'; ring.style.height='56px'; ring.style.borderColor='var(--pink)'; });
     el.addEventListener('mouseleave', () => { cursor.style.transform='translate(-50%,-50%) scale(1)'; cursor.style.background='var(--pink)'; ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='var(--sky)'; });
   });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(entries => { entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*80); }); }, {threshold:0.12});
   reveals.forEach(r => obs.observe(r));
