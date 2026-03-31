@@ -40,15 +40,16 @@
   .orb3 { width: 180px; height: 180px; background: rgba(168,85,247,0.2); top: 55%; right: 30%; animation-delay: -5s; }
   @keyframes float { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
 
-  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .hero-inner { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 4rem; }
+  .hero-content { max-width: 580px; }
   .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); border: 1px solid rgba(56,212,245,0.4); padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.8rem; animation: fadeUp 0.7s ease both; }
   .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sky); display: inline-block; animation: pulse 2s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
-  .hero-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: 0.95; letter-spacing: -0.03em; animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(3.5rem, 7vw, 7rem); line-height: 0.95; letter-spacing: -0.03em; animation: fadeUp 0.7s 0.1s ease both; }
   .hero-name .gradient-text { background: linear-gradient(135deg, var(--pink) 0%, var(--purple-light) 50%, var(--sky) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% 200%; animation: gradientShift 5s ease infinite; }
   @keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
   .hero-name .line2 { display: block; color: transparent; -webkit-text-stroke: 1.5px rgba(245,240,255,0.35); }
-  .hero-desc { margin-top: 2rem; max-width: 520px; font-size: 0.88rem; line-height: 1.75; color: rgba(245,240,255,0.6); animation: fadeUp 0.7s 0.25s ease both; }
+  .hero-desc { margin-top: 2rem; max-width: 480px; font-size: 0.88rem; line-height: 1.75; color: rgba(245,240,255,0.6); animation: fadeUp 0.7s 0.25s ease both; }
   .hero-desc strong { color: var(--lavender); }
   .hero-cta { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.35s ease both; }
   .btn { display: inline-block; padding: 0.75rem 1.75rem; font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 3px; transition: transform 0.2s, box-shadow 0.2s; }
@@ -58,7 +59,13 @@
   .btn-outline { border: 1px solid rgba(56,212,245,0.4); color: var(--sky); }
   .btn-outline:hover { background: rgba(56,212,245,0.08); border-color: var(--sky); }
 
-  .hero-badges { position: absolute; right: 4vw; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.75rem; animation: fadeUp 0.7s 0.5s ease both; }
+  .hero-photo-wrap { flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; animation: fadeUp 0.7s 0.45s ease both; }
+  .hero-photo-glow { position: absolute; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(255,61,166,0.35) 0%, rgba(168,85,247,0.25) 40%, transparent 70%); filter: blur(28px); animation: glowPulse 4s ease-in-out infinite; }
+  @keyframes glowPulse { 0%,100%{opacity:0.8;transform:scale(1)} 50%{opacity:1;transform:scale(1.08)} }
+  .hero-photo { position: relative; z-index: 2; width: 220px; height: 220px; border-radius: 20px; object-fit: cover; border: 1px solid rgba(255,61,166,0.4); box-shadow: 0 0 0 1px rgba(168,85,247,0.3), 0 8px 32px rgba(255,61,166,0.2), 0 0 60px rgba(168,85,247,0.15); }
+  .hero-photo-wrap::before { content: ''; position: absolute; top: -8px; right: -8px; width: 40px; height: 40px; border-top: 2px solid var(--pink); border-right: 2px solid var(--pink); border-radius: 0 6px 0 0; z-index: 3; }
+  .hero-photo-wrap::after { content: ''; position: absolute; bottom: -8px; left: -8px; width: 40px; height: 40px; border-bottom: 2px solid var(--purple-light); border-left: 2px solid var(--purple-light); border-radius: 0 0 0 6px; z-index: 3; }
+
   .badge { background: rgba(22,14,42,0.8); border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 1rem; font-size: 0.68rem; letter-spacing: 0.06em; color: rgba(245,240,255,0.6); white-space: nowrap; backdrop-filter: blur(8px); transition: border-color 0.2s, color 0.2s; }
   .badge:hover { border-color: var(--pink); color: var(--lavender); }
   .badge span { display: block; font-size: 0.58rem; color: var(--purple-light); margin-bottom: 2px; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -124,7 +131,6 @@
   .chip:hover { background: rgba(56,212,245,0.1); }
   .project-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 1.2rem; border-radius: 20px; background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; text-decoration: none; white-space: nowrap; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 2; }
   .project-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,61,166,0.35); }
-  .project-btn.disabled { background: rgba(245,240,255,0.07); color: rgba(245,240,255,0.3); border: 1px solid rgba(245,240,255,0.1); cursor: default; pointer-events: none; }
   .project-year { font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(245,240,255,0.25); text-transform: uppercase; white-space: nowrap; }
 
   #contact { border-top: 1px solid var(--border); text-align: center; }
@@ -140,12 +146,12 @@
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
+  @media (max-width: 900px) { .hero-photo-wrap { display: none; } }
   @media (max-width: 768px) {
     #about { grid-template-columns: 1fr; gap: 3rem; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .edu-grid { grid-template-columns: 1fr; }
     .project-card { grid-template-columns: 1fr; }
-    .hero-badges { display: none; }
   }
   @media (max-width: 520px) { .skills-grid { grid-template-columns: 1fr; } }
 </style>
@@ -171,25 +177,25 @@
   <div class="orb orb1"></div>
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Computational Social Scientist & Data Scientist</div>
-    <h1 class="hero-name">
-      <span class="gradient-text">Ashley</span><br>
-      <span class="line2">Tewari</span>
-    </h1>
-    <p class="hero-desc">
-      MS Data Science student at the <strong>NYU Center for Data Science</strong>. Combining social psychology and computational methodology to discover facets of human behavior — from marketing to election analytics to consumer insights.
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View My Work</a>
-      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">Computational Social Scientist & Data Scientist</div>
+      <h1 class="hero-name">
+        <span class="gradient-text">Ashley</span><br>
+        <span class="line2">Tewari</span>
+      </h1>
+      <p class="hero-desc">
+        MS Data Science student at the <strong>NYU Center for Data Science</strong>. Combining social psychology and computational methodology to discover facets of human behavior — from marketing to election analytics to consumer insights.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-badges">
-    <div class="badge"><span>Currently</span>MS Data Science @ NYU</div>
-    <div class="badge"><span>Background</span>Social Psychology BS, UCSD</div>
-    <div class="badge"><span>Focus</span>Computational Social Science</div>
-    <div class="badge"><span>Honors</span>Cum Laude · Provost Honors</div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-glow"></div>
+      <img src="/photo.jpg" alt="Ashley Tewari" class="hero-photo" />
+    </div>
   </div>
 </section>
 
@@ -234,68 +240,50 @@
     <div class="skill-category reveal">
       <div class="skill-cat-title">Programming & Data</div>
       <div class="skill-tags">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">R / RStudio</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">SPSS</span>
-        <span class="skill-tag">Git</span>
-        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">Python</span><span class="skill-tag">R / RStudio</span>
+        <span class="skill-tag">SQL</span><span class="skill-tag">SPSS</span>
+        <span class="skill-tag">Git</span><span class="skill-tag">AWS</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Statistics & Methods</div>
       <div class="skill-tags">
-        <span class="skill-tag">Regression Analysis</span>
-        <span class="skill-tag">Multivariate Analysis</span>
-        <span class="skill-tag">A/B Testing</span>
-        <span class="skill-tag">Hypothesis Testing</span>
-        <span class="skill-tag">NLP</span>
-        <span class="skill-tag">Machine Learning</span>
-        <span class="skill-tag">Probability</span>
-        <span class="skill-tag">Forecasting</span>
+        <span class="skill-tag">Regression Analysis</span><span class="skill-tag">Multivariate Analysis</span>
+        <span class="skill-tag">A/B Testing</span><span class="skill-tag">Hypothesis Testing</span>
+        <span class="skill-tag">NLP</span><span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Probability</span><span class="skill-tag">Forecasting</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Analytics & Tools</div>
       <div class="skill-tags">
-        <span class="skill-tag">Tableau</span>
-        <span class="skill-tag">Power BI</span>
-        <span class="skill-tag">Google Analytics</span>
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">Qualtrics</span>
-        <span class="skill-tag">Microsoft Office</span>
+        <span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Google Analytics</span><span class="skill-tag">Figma</span>
+        <span class="skill-tag">Qualtrics</span><span class="skill-tag">Microsoft Office</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Behavioral Science</div>
       <div class="skill-tags">
-        <span class="skill-tag">Social Psychology</span>
-        <span class="skill-tag">Survey Design</span>
-        <span class="skill-tag">User Research</span>
-        <span class="skill-tag">Decision Sciences</span>
+        <span class="skill-tag">Social Psychology</span><span class="skill-tag">Survey Design</span>
+        <span class="skill-tag">User Research</span><span class="skill-tag">Decision Sciences</span>
         <span class="skill-tag">Consumer Behavior</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Digital & Marketing</div>
       <div class="skill-tags">
-        <span class="skill-tag">Audience Insights</span>
-        <span class="skill-tag">Digital Media</span>
-        <span class="skill-tag">eCommerce</span>
-        <span class="skill-tag">Performance Analysis</span>
-        <span class="skill-tag">Social Listening</span>
-        <span class="skill-tag">Advertising</span>
+        <span class="skill-tag">Audience Insights</span><span class="skill-tag">Digital Media</span>
+        <span class="skill-tag">eCommerce</span><span class="skill-tag">Performance Analysis</span>
+        <span class="skill-tag">Social Listening</span><span class="skill-tag">Advertising</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">AI & Advanced Methods</div>
       <div class="skill-tags">
-        <span class="skill-tag">AI / LLMs</span>
-        <span class="skill-tag">Predictive Models</span>
-        <span class="skill-tag">Recommendation Systems</span>
-        <span class="skill-tag">Optimization</span>
-        <span class="skill-tag">Experimentation</span>
-        <span class="skill-tag">Data Storytelling</span>
+        <span class="skill-tag">AI / LLMs</span><span class="skill-tag">Predictive Models</span>
+        <span class="skill-tag">Recommendation Systems</span><span class="skill-tag">Optimization</span>
+        <span class="skill-tag">Experimentation</span><span class="skill-tag">Data Storytelling</span>
       </div>
     </div>
   </div>
