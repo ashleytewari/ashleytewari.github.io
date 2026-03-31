@@ -40,8 +40,16 @@
   .orb3 { width: 180px; height: 180px; background: rgba(168,85,247,0.2); top: 55%; right: 30%; animation-delay: -5s; }
   @keyframes float { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
 
-  .hero-inner { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 4rem; }
-  .hero-content { max-width: 580px; }
+  /* HERO LAYOUT — text left, photo right, evenly spaced */
+  .hero-inner {
+    position: relative; z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    gap: 3rem;
+  }
+  .hero-content { max-width: 560px; }
   .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); border: 1px solid rgba(56,212,245,0.4); padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.8rem; animation: fadeUp 0.7s ease both; }
   .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sky); display: inline-block; animation: pulse 2s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
@@ -59,16 +67,41 @@
   .btn-outline { border: 1px solid rgba(56,212,245,0.4); color: var(--sky); }
   .btn-outline:hover { background: rgba(56,212,245,0.08); border-color: var(--sky); }
 
-  .hero-photo-wrap { flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; animation: fadeUp 0.7s 0.45s ease both; }
-  .hero-photo-glow { position: absolute; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(255,61,166,0.35) 0%, rgba(168,85,247,0.25) 40%, transparent 70%); filter: blur(28px); animation: glowPulse 4s ease-in-out infinite; }
+  /* PHOTO */
+  .hero-photo-wrap {
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    animation: fadeUp 0.7s 0.45s ease both;
+  }
+  .hero-photo-glow {
+    position: absolute;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(255,61,166,0.4) 0%, rgba(168,85,247,0.28) 40%, transparent 70%);
+    filter: blur(35px);
+    animation: glowPulse 4s ease-in-out infinite;
+  }
   @keyframes glowPulse { 0%,100%{opacity:0.8;transform:scale(1)} 50%{opacity:1;transform:scale(1.08)} }
-  .hero-photo { position: relative; z-index: 2; width: 220px; height: 220px; border-radius: 20px; object-fit: cover; border: 1px solid rgba(255,61,166,0.4); box-shadow: 0 0 0 1px rgba(168,85,247,0.3), 0 8px 32px rgba(255,61,166,0.2), 0 0 60px rgba(168,85,247,0.15); }
-  .hero-photo-wrap::before { content: ''; position: absolute; top: -8px; right: -8px; width: 40px; height: 40px; border-top: 2px solid var(--pink); border-right: 2px solid var(--pink); border-radius: 0 6px 0 0; z-index: 3; }
-  .hero-photo-wrap::after { content: ''; position: absolute; bottom: -8px; left: -8px; width: 40px; height: 40px; border-bottom: 2px solid var(--purple-light); border-left: 2px solid var(--purple-light); border-radius: 0 0 0 6px; z-index: 3; }
-
-  .badge { background: rgba(22,14,42,0.8); border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 1rem; font-size: 0.68rem; letter-spacing: 0.06em; color: rgba(245,240,255,0.6); white-space: nowrap; backdrop-filter: blur(8px); transition: border-color 0.2s, color 0.2s; }
-  .badge:hover { border-color: var(--pink); color: var(--lavender); }
-  .badge span { display: block; font-size: 0.58rem; color: var(--purple-light); margin-bottom: 2px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .hero-photo {
+    position: relative; z-index: 2;
+    width: 300px; height: 300px;
+    border-radius: 24px;
+    object-fit: cover;
+    object-position: center top;
+    border: 1px solid rgba(255,61,166,0.45);
+    box-shadow: 0 0 0 1px rgba(168,85,247,0.3), 0 8px 40px rgba(255,61,166,0.25), 0 0 80px rgba(168,85,247,0.18);
+  }
+  .hero-photo-wrap::before {
+    content: ''; position: absolute; top: -10px; right: -10px;
+    width: 50px; height: 50px;
+    border-top: 2px solid var(--pink); border-right: 2px solid var(--pink);
+    border-radius: 0 8px 0 0; z-index: 3;
+  }
+  .hero-photo-wrap::after {
+    content: ''; position: absolute; bottom: -10px; left: -10px;
+    width: 50px; height: 50px;
+    border-bottom: 2px solid var(--purple-light); border-left: 2px solid var(--purple-light);
+    border-radius: 0 0 0 8px; z-index: 3;
+  }
 
   section { padding: 7rem 4vw; }
   .section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink); margin-bottom: 1rem; }
@@ -146,7 +179,7 @@
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
-  @media (max-width: 900px) { .hero-photo-wrap { display: none; } }
+  @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .hero-photo-wrap { display: none; } }
   @media (max-width: 768px) {
     #about { grid-template-columns: 1fr; gap: 3rem; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
@@ -293,7 +326,6 @@
   <p class="section-label">Work</p>
   <h2 class="section-title">Research <em>Projects</em></h2>
   <div class="projects-list">
-
     <div class="project-card reveal">
       <div class="project-body">
         <span class="project-number">01</span>
@@ -314,7 +346,6 @@
       </div>
       <div class="project-side"><div class="project-year">NYU</div></div>
     </div>
-
     <div class="project-card reveal">
       <div class="project-body">
         <span class="project-number">02</span>
@@ -335,7 +366,6 @@
       </div>
       <div class="project-side"><div class="project-year">UCSD</div></div>
     </div>
-
     <div class="project-card reveal">
       <div class="project-body">
         <span class="project-number">03</span>
@@ -357,7 +387,6 @@
       </div>
       <div class="project-side"><div class="project-year">UCSD</div></div>
     </div>
-
   </div>
 </section>
 
