@@ -17,236 +17,84 @@
     --card-bg: #160e2a;
     --border: rgba(168,85,247,0.18);
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: 'DM Mono', monospace;
-    overflow-x: hidden;
-    cursor: none;
-  }
+  body { background: var(--bg); color: var(--fg); font-family: 'DM Mono', monospace; overflow-x: hidden; cursor: none; }
 
-  /* Cursor */
-  .cursor {
-    position: fixed; width: 12px; height: 12px;
-    background: var(--pink);
-    border-radius: 50%; pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s ease, background 0.2s;
-    transform: translate(-50%, -50%);
-  }
-  .cursor-ring {
-    position: fixed; width: 36px; height: 36px;
-    border: 1.5px solid var(--sky);
-    border-radius: 50%; pointer-events: none;
-    z-index: 9998;
-    transition: transform 0.35s ease, width 0.3s, height 0.3s;
-    transform: translate(-50%, -50%);
-  }
+  .cursor { position: fixed; width: 12px; height: 12px; background: var(--pink); border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.15s ease, background 0.2s; transform: translate(-50%, -50%); }
+  .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1.5px solid var(--sky); border-radius: 50%; pointer-events: none; z-index: 9998; transition: transform 0.35s ease, width 0.3s, height 0.3s; transform: translate(-50%, -50%); }
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 4vw;
-    background: rgba(13,10,26,0.88);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem;
-    letter-spacing: -0.03em; color: var(--fg); text-decoration: none;
-  }
-  .nav-logo span {
-    background: linear-gradient(135deg, var(--pink), var(--purple));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 4vw; background: rgba(13,10,26,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.03em; color: var(--fg); text-decoration: none; }
+  .nav-logo span { background: linear-gradient(135deg, var(--pink), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(245,240,255,0.5); text-decoration: none; transition: color 0.2s;
-  }
+  .nav-links a { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,255,0.5); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--sky); }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding: 0 4vw; position: relative; overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 70% 60% at 60% 35%, rgba(168,85,247,0.22) 0%, transparent 60%),
-      radial-gradient(ellipse 55% 50% at 15% 75%, rgba(255,61,166,0.18) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 45% at 90% 80%, rgba(56,212,245,0.12) 0%, transparent 50%),
-      radial-gradient(ellipse 40% 30% at 80% 15%, rgba(192,132,252,0.15) 0%, transparent 50%);
-  }
-  .hero-bg::after {
-    content: '';
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(168,85,247,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(168,85,247,0.05) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-  /* Floating orbs */
-  .orb {
-    position: absolute; border-radius: 50%; filter: blur(70px); pointer-events: none;
-    animation: float 8s ease-in-out infinite;
-  }
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 0 4vw; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 60% 35%, rgba(168,85,247,0.22) 0%, transparent 60%), radial-gradient(ellipse 55% 50% at 15% 75%, rgba(255,61,166,0.18) 0%, transparent 55%), radial-gradient(ellipse 50% 45% at 90% 80%, rgba(56,212,245,0.12) 0%, transparent 50%); }
+  .hero-bg::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(168,85,247,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(168,85,247,0.05) 1px, transparent 1px); background-size: 60px 60px; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(70px); pointer-events: none; animation: float 8s ease-in-out infinite; }
   .orb1 { width: 320px; height: 320px; background: rgba(255,61,166,0.15); top: 10%; right: 15%; animation-delay: 0s; }
   .orb2 { width: 240px; height: 240px; background: rgba(56,212,245,0.12); bottom: 20%; left: 10%; animation-delay: -3s; }
   .orb3 { width: 180px; height: 180px; background: rgba(168,85,247,0.2); top: 55%; right: 30%; animation-delay: -5s; }
-  @keyframes float {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-30px) scale(1.05); }
-  }
+  @keyframes float { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
 
   .hero-content { position: relative; z-index: 2; max-width: 900px; }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--sky);
-    border: 1px solid rgba(56,212,245,0.4);
-    padding: 0.3rem 0.85rem; border-radius: 20px;
-    margin-bottom: 1.8rem;
-    animation: fadeUp 0.7s ease both;
-  }
-  .hero-tag::before {
-    content: ''; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--sky); display: inline-block;
-    animation: pulse 2s ease-in-out infinite;
-  }
+  .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); border: 1px solid rgba(56,212,245,0.4); padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.8rem; animation: fadeUp 0.7s ease both; }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sky); display: inline-block; animation: pulse 2s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
-
-  .hero-name {
-    font-family: 'Fraunces', serif; font-weight: 700;
-    font-size: clamp(3.5rem, 9vw, 7.5rem);
-    line-height: 0.95; letter-spacing: -0.03em;
-    animation: fadeUp 0.7s 0.1s ease both;
-  }
-  .hero-name .gradient-text {
-    background: linear-gradient(135deg, var(--pink) 0%, var(--purple-light) 50%, var(--sky) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-size: 200% 200%;
-    animation: gradientShift 5s ease infinite;
-  }
-  @keyframes gradientShift {
-    0%,100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-  .hero-name .line2 {
-    display: block; color: transparent;
-    -webkit-text-stroke: 1.5px rgba(245,240,255,0.35);
-  }
-  .hero-desc {
-    margin-top: 2rem; max-width: 520px;
-    font-size: 0.88rem; line-height: 1.75;
-    color: rgba(245,240,255,0.6);
-    animation: fadeUp 0.7s 0.25s ease both;
-  }
+  .hero-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: 0.95; letter-spacing: -0.03em; animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-name .gradient-text { background: linear-gradient(135deg, var(--pink) 0%, var(--purple-light) 50%, var(--sky) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% 200%; animation: gradientShift 5s ease infinite; }
+  @keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+  .hero-name .line2 { display: block; color: transparent; -webkit-text-stroke: 1.5px rgba(245,240,255,0.35); }
+  .hero-desc { margin-top: 2rem; max-width: 520px; font-size: 0.88rem; line-height: 1.75; color: rgba(245,240,255,0.6); animation: fadeUp 0.7s 0.25s ease both; }
   .hero-desc strong { color: var(--lavender); }
-  .hero-cta {
-    margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;
-    animation: fadeUp 0.7s 0.35s ease both;
-  }
-  .btn {
-    display: inline-block; padding: 0.75rem 1.75rem;
-    font-family: 'DM Mono', monospace; font-size: 0.78rem;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    text-decoration: none; border-radius: 3px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
+  .hero-cta { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.35s ease both; }
+  .btn { display: inline-block; padding: 0.75rem 1.75rem; font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 3px; transition: transform 0.2s, box-shadow 0.2s; }
   .btn:hover { transform: translateY(-2px); }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--pink), var(--purple));
-    color: #fff; font-weight: 500;
-  }
+  .btn-primary { background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; font-weight: 500; }
   .btn-primary:hover { box-shadow: 0 8px 28px rgba(255,61,166,0.4); }
-  .btn-outline {
-    border: 1px solid rgba(56,212,245,0.4); color: var(--sky);
-  }
+  .btn-outline { border: 1px solid rgba(56,212,245,0.4); color: var(--sky); }
   .btn-outline:hover { background: rgba(56,212,245,0.08); border-color: var(--sky); }
 
-  .hero-badges {
-    position: absolute; right: 4vw; top: 50%; transform: translateY(-50%);
-    display: flex; flex-direction: column; gap: 0.75rem;
-    animation: fadeUp 0.7s 0.5s ease both;
-  }
-  .badge {
-    background: rgba(22,14,42,0.8);
-    border: 1px solid var(--border);
-    border-radius: 6px; padding: 0.55rem 1rem;
-    font-size: 0.68rem; letter-spacing: 0.06em;
-    color: rgba(245,240,255,0.6); white-space: nowrap;
-    backdrop-filter: blur(8px);
-    transition: border-color 0.2s, color 0.2s;
-  }
+  .hero-badges { position: absolute; right: 4vw; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.75rem; animation: fadeUp 0.7s 0.5s ease both; }
+  .badge { background: rgba(22,14,42,0.8); border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 1rem; font-size: 0.68rem; letter-spacing: 0.06em; color: rgba(245,240,255,0.6); white-space: nowrap; backdrop-filter: blur(8px); transition: border-color 0.2s, color 0.2s; }
   .badge:hover { border-color: var(--pink); color: var(--lavender); }
   .badge span { display: block; font-size: 0.58rem; color: var(--purple-light); margin-bottom: 2px; letter-spacing: 0.1em; text-transform: uppercase; }
 
-  /* SECTIONS */
   section { padding: 7rem 4vw; }
-  .section-label {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--pink); margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    letter-spacing: -0.03em; margin-bottom: 3rem;
-  }
-  .section-title em {
-    font-style: italic; font-family: 'Fraunces', serif; font-weight: 300;
-    background: linear-gradient(135deg, var(--purple-light), var(--sky));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
+  .section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink); margin-bottom: 1rem; }
+  .section-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.03em; margin-bottom: 3rem; }
+  .section-title em { font-style: italic; font-family: 'Fraunces', serif; font-weight: 300; background: linear-gradient(135deg, var(--purple-light), var(--sky)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-  /* ABOUT */
-  #about {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
-    border-top: 1px solid var(--border);
-  }
+  #about { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; border-top: 1px solid var(--border); }
   .about-text p { font-size: 0.88rem; line-height: 1.85; color: rgba(245,240,255,0.65); margin-bottom: 1.2rem; }
   .about-text p strong { color: var(--sky); }
   .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-  .stat-box {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px; padding: 1.5rem;
-    transition: border-color 0.2s, transform 0.2s;
-    position: relative; overflow: hidden;
-  }
-  .stat-box::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(255,61,166,0.05), rgba(56,212,245,0.05));
-    opacity: 0; transition: opacity 0.3s;
-  }
+  .stat-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
+  .stat-box::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,61,166,0.05), rgba(56,212,245,0.05)); opacity: 0; transition: opacity 0.3s; }
   .stat-box:hover { border-color: var(--purple); transform: translateY(-3px); }
   .stat-box:hover::after { opacity: 1; }
-  .stat-box .num {
-    font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700;
-    background: linear-gradient(135deg, var(--pink), var(--purple-light));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    line-height: 1;
-  }
-  .stat-box .label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,255,0.4); margin-top: 0.4rem; }
+  .stat-box .num { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, var(--pink), var(--purple-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+  .stat-box .label { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,255,0.4); margin-top: 0.4rem; }
 
-  /* SKILLS */
+  #education { border-top: 1px solid var(--border); }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .edu-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem; transition: border-color 0.25s, transform 0.25s; position: relative; overflow: hidden; }
+  .edu-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  .edu-card:nth-child(1)::before { background: linear-gradient(90deg, var(--pink), var(--purple)); }
+  .edu-card:nth-child(2)::before { background: linear-gradient(90deg, var(--purple), var(--sky)); }
+  .edu-card:hover { transform: translateY(-4px); border-color: rgba(168,85,247,0.45); }
+  .edu-school { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; margin-bottom: 0.3rem; color: var(--lavender); }
+  .edu-degree { font-size: 0.78rem; color: rgba(245,240,255,0.7); line-height: 1.5; margin-bottom: 0.5rem; }
+  .edu-date { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 0.75rem; }
+  .edu-honors { font-size: 0.68rem; color: rgba(245,240,255,0.45); font-style: italic; }
+
   #skills { border-top: 1px solid var(--border); }
   .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .skill-category {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px; padding: 1.75rem;
-    transition: border-color 0.25s, transform 0.25s;
-    position: relative; overflow: hidden;
-  }
-  .skill-category::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  }
+  .skill-category { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem; transition: border-color 0.25s, transform 0.25s; position: relative; overflow: hidden; }
+  .skill-category::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
   .skill-category:nth-child(1)::before { background: linear-gradient(90deg, var(--pink), var(--purple)); }
   .skill-category:nth-child(2)::before { background: linear-gradient(90deg, var(--purple), var(--sky)); }
   .skill-category:nth-child(3)::before { background: linear-gradient(90deg, var(--sky), var(--pink)); }
@@ -254,101 +102,44 @@
   .skill-category:nth-child(5)::before { background: linear-gradient(90deg, var(--pink), var(--sky)); }
   .skill-category:nth-child(6)::before { background: linear-gradient(90deg, var(--sky), var(--purple-light)); }
   .skill-category:hover { transform: translateY(-4px); border-color: rgba(168,85,247,0.45); }
-  .skill-cat-title {
-    font-family: 'Syne', sans-serif; font-weight: 700;
-    font-size: 0.82rem; letter-spacing: 0.05em; margin-bottom: 1rem;
-    text-transform: uppercase; color: var(--lavender);
-  }
+  .skill-cat-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.05em; margin-bottom: 1rem; text-transform: uppercase; color: var(--lavender); }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .skill-tag {
-    font-size: 0.65rem; letter-spacing: 0.06em;
-    padding: 0.3rem 0.65rem; border-radius: 20px;
-    background: rgba(168,85,247,0.1);
-    color: rgba(245,240,255,0.7);
-    border: 1px solid rgba(168,85,247,0.25);
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
-  }
+  .skill-tag { font-size: 0.65rem; letter-spacing: 0.06em; padding: 0.3rem 0.65rem; border-radius: 20px; background: rgba(168,85,247,0.1); color: rgba(245,240,255,0.7); border: 1px solid rgba(168,85,247,0.25); transition: background 0.2s, border-color 0.2s, color 0.2s; }
   .skill-tag:hover { background: rgba(255,61,166,0.15); border-color: var(--pink); color: var(--lavender); }
 
-  /* PROJECTS */
   #projects { border-top: 1px solid var(--border); }
-  .project-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px; padding: 2.5rem;
-    display: grid; grid-template-columns: 1fr auto;
-    gap: 2rem; align-items: start;
-    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-    max-width: 860px; position: relative; overflow: hidden;
-  }
-  .project-card::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(255,61,166,0.06), rgba(56,212,245,0.04), rgba(168,85,247,0.06));
-    opacity: 0; transition: opacity 0.3s;
-  }
+  .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; position: relative; overflow: hidden; }
+  .project-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,61,166,0.06), rgba(56,212,245,0.04), rgba(168,85,247,0.06)); opacity: 0; transition: opacity 0.3s; }
   .project-card:hover { border-color: var(--purple); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(168,85,247,0.15); }
   .project-card:hover::before { opacity: 1; }
-  .project-number {
-    font-family: 'Fraunces', serif; font-size: 4rem; font-weight: 700;
-    background: linear-gradient(135deg, rgba(255,61,166,0.15), rgba(168,85,247,0.1));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    line-height: 1; margin-bottom: 1rem; display: block;
-  }
-  .project-title {
-    font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: 1.5rem; letter-spacing: -0.02em; margin-bottom: 0.75rem;
-    background: linear-gradient(135deg, var(--fg), var(--lavender));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .project-desc { font-size: 0.84rem; line-height: 1.8; color: rgba(245,240,255,0.55); margin-bottom: 1.25rem; max-width: 520px; }
+  .project-number { font-family: 'Fraunces', serif; font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, rgba(255,61,166,0.2), rgba(168,85,247,0.15)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 0.75rem; display: block; }
+  .project-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem; letter-spacing: -0.02em; margin-bottom: 0.75rem; background: linear-gradient(135deg, var(--fg), var(--lavender)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .project-bullets { list-style: none; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .project-bullets li { font-size: 0.82rem; line-height: 1.7; color: rgba(245,240,255,0.55); padding-left: 1rem; position: relative; }
+  .project-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--pink); font-size: 0.7rem; }
   .project-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .chip {
-    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0.28rem 0.75rem; border-radius: 20px;
-    border: 1px solid rgba(56,212,245,0.4); color: var(--sky);
-    transition: background 0.2s;
-  }
+  .chip { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.28rem 0.75rem; border-radius: 20px; border: 1px solid rgba(56,212,245,0.4); color: var(--sky); transition: background 0.2s; }
   .chip:hover { background: rgba(56,212,245,0.1); }
-  .project-year { font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(245,240,255,0.25); text-transform: uppercase; }
+  .project-year { font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(245,240,255,0.25); text-transform: uppercase; white-space: nowrap; }
 
-  /* CONTACT */
   #contact { border-top: 1px solid var(--border); text-align: center; }
-  .contact-big {
-    font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 4.5rem);
-    font-weight: 300; font-style: italic;
-    color: rgba(245,240,255,0.5); margin-bottom: 0.5rem; line-height: 1.1;
-  }
-  .contact-big strong {
-    font-weight: 700; font-style: normal;
-    background: linear-gradient(135deg, var(--pink), var(--purple-light), var(--sky));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
+  .contact-big { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 300; font-style: italic; color: rgba(245,240,255,0.5); margin-bottom: 0.5rem; line-height: 1.1; }
+  .contact-big strong { font-weight: 700; font-style: normal; background: linear-gradient(135deg, var(--pink), var(--purple-light), var(--sky)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   .contact-links { margin-top: 2.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-  .contact-link {
-    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: rgba(245,240,255,0.45); text-decoration: none;
-    border-bottom: 1px solid rgba(245,240,255,0.15); padding-bottom: 2px;
-    transition: color 0.2s, border-color 0.2s;
-  }
+  .contact-link { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,255,0.45); text-decoration: none; border-bottom: 1px solid rgba(245,240,255,0.15); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
   .contact-link:hover { color: var(--pink); border-color: var(--pink); }
 
-  footer {
-    padding: 2rem 4vw; border-top: 1px solid var(--border);
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.65rem; letter-spacing: 0.1em;
-    color: rgba(245,240,255,0.2); text-transform: uppercase;
-  }
+  footer { padding: 2rem 4vw; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; letter-spacing: 0.1em; color: rgba(245,240,255,0.2); text-transform: uppercase; }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
   @media (max-width: 768px) {
     #about { grid-template-columns: 1fr; gap: 3rem; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
     .project-card { grid-template-columns: 1fr; }
     .hero-badges { display: none; }
   }
@@ -364,6 +155,7 @@
   <a class="nav-logo" href="#"><span>A</span>T</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -376,13 +168,13 @@
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
   <div class="hero-content">
-    <div class="hero-tag">Computational Social Scientist</div>
+    <div class="hero-tag">Computational Social Scientist & Data Scientist</div>
     <h1 class="hero-name">
       <span class="gradient-text">Ashley</span><br>
       <span class="line2">Tewari</span>
     </h1>
     <p class="hero-desc">
-      Bridging <strong>human behavior</strong> and <strong>data science</strong> — uncovering how people think, decide, and act in the digital world. From election analytics to consumer insights, I turn behavioral signals into strategic intelligence.
+      MS Data Science candidate at <strong>NYU Center for Data Science</strong>. Bridging social psychology and computational methods to understand human behavior — from election analytics to consumer insights.
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -390,10 +182,10 @@
     </div>
   </div>
   <div class="hero-badges">
-    <div class="badge"><span>Focus Area</span>Behavioral Data Science</div>
-    <div class="badge"><span>Background</span>Social Psychology BS</div>
-    <div class="badge"><span>Specialty</span>Digital Analytics</div>
-    <div class="badge"><span>Domain</span>Election Analytics</div>
+    <div class="badge"><span>Currently</span>MS Data Science @ NYU</div>
+    <div class="badge"><span>Background</span>Social Psychology BS, UCSD</div>
+    <div class="badge"><span>Focus</span>Computational Social Science</div>
+    <div class="badge"><span>Honors</span>Cum Laude · Provost Honors</div>
   </div>
 </section>
 
@@ -401,15 +193,33 @@
   <div class="about-text">
     <p class="section-label">About Me</p>
     <h2 class="section-title">Where <em>people</em><br>meet patterns</h2>
-    <p>I'm Ashley Tewari — a Computational Social Scientist with a foundation in <strong>Social Psychology</strong>. I study how human behavior manifests in digital data, and use those patterns to drive insight and strategy.</p>
-    <p>My work spans <strong>election analytics</strong>, <strong>digital marketing</strong>, <strong>product analytics</strong>, <strong>web analytics</strong>, and <strong>consumer insights</strong> — always with an eye toward the human story underneath the numbers.</p>
-    <p>I believe the most powerful analyses are the ones that keep people at the center, using rigorous methods to illuminate the why behind the what.</p>
+    <p>I'm Ashley Tewari — a Data Scientist specializing in <strong>Computational Social Science</strong>. I combine a foundation in Social Psychology with advanced data science methods to study how human behavior manifests in digital data.</p>
+    <p>My work spans <strong>election analytics</strong>, <strong>digital marketing</strong>, <strong>product analytics</strong>, <strong>audience insights</strong>, and <strong>behavioral data science</strong> — always keeping people at the center of the analysis.</p>
+    <p>Currently pursuing my MS in Data Science at the <strong>NYU Center for Data Science</strong>, building on my BS in Social Psychology from UC San Diego.</p>
   </div>
   <div class="about-stats reveal">
-    <div class="stat-box"><div class="num">CSS</div><div class="label">Computational Social Science</div></div>
-    <div class="stat-box"><div class="num">BSc</div><div class="label">Social Psychology</div></div>
-    <div class="stat-box"><div class="num">360°</div><div class="label">Audience Analytics</div></div>
+    <div class="stat-box"><div class="num">NYU</div><div class="label">Center for Data Science, MS</div></div>
+    <div class="stat-box"><div class="num">UCSD</div><div class="label">Social Psychology BS, Cum Laude</div></div>
+    <div class="stat-box"><div class="num">3</div><div class="label">Research Projects Completed</div></div>
     <div class="stat-box"><div class="num">∞</div><div class="label">Curiosity-Driven Research</div></div>
+  </div>
+</section>
+
+<section id="education">
+  <p class="section-label">Education</p>
+  <h2 class="section-title">Academic <em>Background</em></h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-school">New York University</div>
+      <div class="edu-date">Sept 2025 – May 2027</div>
+      <div class="edu-degree">MS, Data Science<br>Specialization: Computational Social Science<br>Center for Data Science, New York, NY</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-school">UC San Diego</div>
+      <div class="edu-date">Aug 2021 – June 2023</div>
+      <div class="edu-degree">BS, Social Psychology<br>Marshall College, San Diego, CA</div>
+      <div class="edu-honors">Cum Laude · Provost Honors · Marshall College Honors</div>
+    </div>
   </div>
 </section>
 
@@ -420,49 +230,68 @@
     <div class="skill-category reveal">
       <div class="skill-cat-title">Programming & Data</div>
       <div class="skill-tags">
-        <span class="skill-tag">Python</span><span class="skill-tag">R</span>
-        <span class="skill-tag">SQL</span><span class="skill-tag">Pandas</span>
-        <span class="skill-tag">NumPy</span><span class="skill-tag">Jupyter</span>
-        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">R / RStudio</span>
+        <span class="skill-tag">SQL</span>
         <span class="skill-tag">SPSS</span>
-        <span class="skill-tag">Qualtrics</span>
-        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">AWS</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Statistics & Methods</div>
       <div class="skill-tags">
-        <span class="skill-tag">Regression Analysis</span><span class="skill-tag">Survey Design</span>
-        <span class="skill-tag">A/B Testing</span><span class="skill-tag">NLP</span>
-        <span class="skill-tag">Text Analysis</span>
+        <span class="skill-tag">Regression Analysis</span>
+        <span class="skill-tag">Multivariate Analysis</span>
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Hypothesis Testing</span>
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Probability</span>
+        <span class="skill-tag">Forecasting</span>
       </div>
     </div>
     <div class="skill-category reveal">
-      <div class="skill-cat-title">Analytics Domains</div>
+      <div class="skill-cat-title">Analytics & Tools</div>
       <div class="skill-tags">
-        <span class="skill-tag">Web Analytics</span><span class="skill-tag">Product Analytics</span>
-        <span class="skill-tag">Audience Analytics</span><span class="skill-tag">Google Analytics</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Google Analytics</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Qualtrics</span>
+        <span class="skill-tag">Microsoft Office</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Behavioral Science</div>
       <div class="skill-tags">
-        <span class="skill-tag">Social Psychology</span><span class="skill-tag">Cognitive Bias</span>
-        <span class="skill-tag">Behavioral Economics</span><span class="skill-tag">Consumer Behavior</span>
+        <span class="skill-tag">Social Psychology</span>
+        <span class="skill-tag">Survey Design</span>
+        <span class="skill-tag">User Research</span>
+        <span class="skill-tag">Decision Sciences</span>
+        <span class="skill-tag">Consumer Behavior</span>
       </div>
     </div>
     <div class="skill-category reveal">
-      <div class="skill-cat-title">Digital Marketing</div>
+      <div class="skill-cat-title">Digital & Marketing</div>
       <div class="skill-tags">
-        <span class="skill-tag">Consumer Insights</span><span class="skill-tag">Segmentation</span>
-        <span class="skill-tag">Campaign Analytics</span><span class="skill-tag">Social Listening</span>
+        <span class="skill-tag">Audience Insights</span>
+        <span class="skill-tag">Digital Media</span>
+        <span class="skill-tag">eCommerce</span>
+        <span class="skill-tag">Performance Analysis</span>
+        <span class="skill-tag">Social Listening</span>
+        <span class="skill-tag">Advertising</span>
       </div>
     </div>
     <div class="skill-category reveal">
-      <div class="skill-cat-title">Visualization & Comms</div>
+      <div class="skill-cat-title">AI & Advanced Methods</div>
       <div class="skill-tags">
-        <span class="skill-tag">Tableau</span><span class="skill-tag">ggplot2</span>
-        <span class="skill-tag">Data Storytelling</span><span class="skill-tag">Research Writing</span>
+        <span class="skill-tag">AI / LLMs</span>
+        <span class="skill-tag">Predictive Models</span>
+        <span class="skill-tag">Recommendation Systems</span>
+        <span class="skill-tag">Optimization</span>
+        <span class="skill-tag">Experimentation</span>
+        <span class="skill-tag">Data Storytelling</span>
       </div>
     </div>
   </div>
@@ -470,19 +299,59 @@
 
 <section id="projects">
   <p class="section-label">Work</p>
-  <h2 class="section-title">Featured <em>Project</em></h2>
-  <div class="project-card reveal">
-    <div class="project-body">
-      <span class="project-number">01</span>
-      <h3 class="project-title">Behavioral Signals in Digital Spaces</h3>
-      <p class="project-desc">An analysis of how online behavior patterns reflect real-world attitudes and decision-making. Using computational methods and social psychological frameworks, this project maps the gap between stated preferences and digital footprints — with implications for audience targeting, political messaging, and product design.</p>
-      <div class="project-chips">
-        <span class="chip">Python</span><span class="chip">NLP</span>
-        <span class="chip">Survey Research</span><span class="chip">Behavioral Analysis</span>
+  <h2 class="section-title">Research <em>Projects</em></h2>
+  <div class="projects-list">
+    <div class="project-card reveal">
+      <div class="project-body">
+        <span class="project-number">01</span>
+        <h3 class="project-title">Streaming Platform Ratings Analysis</h3>
+        <ul class="project-bullets">
+          <li>Analyzed user ratings across streaming platforms to discover correlations between film attributes and audience reception.</li>
+          <li>Applied non-parametric statistical tests to examine user rating distributions across streaming services.</li>
+          <li>Designed an entertaining presentation with data visualizations to deliver project outcomes to a diverse audience.</li>
+        </ul>
+        <div class="project-chips">
+          <span class="chip">Python</span>
+          <span class="chip">Statistical Testing</span>
+          <span class="chip">Data Visualization</span>
+        </div>
       </div>
+      <div class="project-side"><div class="project-year">UCSD</div></div>
     </div>
-    <div class="project-side">
-      <div class="project-year">2024</div>
+    <div class="project-card reveal">
+      <div class="project-body">
+        <span class="project-number">02</span>
+        <h3 class="project-title">Personality & Digital Consumer Behavior</h3>
+        <ul class="project-bullets">
+          <li>Created a model that determines the correlations between personality traits and digital consumer behavior patterns.</li>
+          <li>Developed a rating system to identify the highest multivariate correlations in RStudio.</li>
+          <li>Presented findings to a class of 50 on implications of social media behavior using R and Tableau visualizations.</li>
+        </ul>
+        <div class="project-chips">
+          <span class="chip">R / RStudio</span>
+          <span class="chip">Tableau</span>
+          <span class="chip">Multivariate Analysis</span>
+        </div>
+      </div>
+      <div class="project-side"><div class="project-year">UCSD</div></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-body">
+        <span class="project-number">03</span>
+        <h3 class="project-title">Moral Perception & Human Data Modeling</h3>
+        <ul class="project-bullets">
+          <li>Built models using regression analysis and linear models on large sets of human data focused on moral perceptions.</li>
+          <li>Performed multivariate analysis using hundreds of data points in SPSS.</li>
+          <li>Reported findings of end-to-end research and future considerations to a panel of professors.</li>
+        </ul>
+        <div class="project-chips">
+          <span class="chip">SPSS</span>
+          <span class="chip">Qualtrics</span>
+          <span class="chip">Regression Analysis</span>
+          <span class="chip">Research Design</span>
+        </div>
+      </div>
+      <div class="project-side"><div class="project-year">UCSD</div></div>
     </div>
   </div>
 </section>
@@ -490,10 +359,10 @@
 <section id="contact">
   <p class="section-label">Let's Connect</p>
   <p class="contact-big">Have a project or<br><strong>just want to talk data?</strong></p>
-  <p style="font-size:0.82rem;color:rgba(245,240,255,0.4);margin-top:1rem;">I'm always open to research collaborations, analytics roles, and interesting conversations.</p>
+  <p style="font-size:0.82rem;color:rgba(245,240,255,0.4);margin-top:1rem;">Open to research collaborations, internships, and interesting conversations.</p>
   <div class="contact-links">
     <a class="contact-link" href="mailto:ashley@example.com">ashley@example.com</a>
-    <a class="contact-link" href="#">LinkedIn</a>
+    <a class="contact-link" href="https://www.linkedin.com/in/ashleytewari" target="_blank">LinkedIn</a>
     <a class="contact-link" href="#">GitHub</a>
     <a class="contact-link" href="#">Resume</a>
   </div>
@@ -501,44 +370,22 @@
 
 <footer>
   <span>Ashley Tewari © 2026</span>
-  <span>Computational Social Science</span>
+  <span>NYU Center for Data Science</span>
 </footer>
 
 <script>
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-  });
-  function animateRing() {
-    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(animateRing);
-  }
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+  function animateRing() { rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animateRing); }
   animateRing();
   document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(2)';
-      cursor.style.background = 'var(--purple-light)';
-      ring.style.width = '56px'; ring.style.height = '56px';
-      ring.style.borderColor = 'var(--pink)';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-      cursor.style.background = 'var(--pink)';
-      ring.style.width = '36px'; ring.style.height = '36px';
-      ring.style.borderColor = 'var(--sky)';
-    });
+    el.addEventListener('mouseenter', () => { cursor.style.transform='translate(-50%,-50%) scale(2)'; cursor.style.background='var(--purple-light)'; ring.style.width='56px'; ring.style.height='56px'; ring.style.borderColor='var(--pink)'; });
+    el.addEventListener('mouseleave', () => { cursor.style.transform='translate(-50%,-50%) scale(1)'; cursor.style.background='var(--pink)'; ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='var(--sky)'; });
   });
-
   const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
-    });
-  }, { threshold: 0.12 });
+  const obs = new IntersectionObserver(entries => { entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*80); }); }, {threshold:0.12});
   reveals.forEach(r => obs.observe(r));
 </script>
 </body>
