@@ -118,9 +118,13 @@
   .project-bullets { list-style: none; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
   .project-bullets li { font-size: 0.82rem; line-height: 1.7; color: rgba(245,240,255,0.55); padding-left: 1rem; position: relative; }
   .project-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--pink); font-size: 0.7rem; }
+  .project-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 1.25rem; }
   .project-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .chip { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.28rem 0.75rem; border-radius: 20px; border: 1px solid rgba(56,212,245,0.4); color: var(--sky); transition: background 0.2s; }
   .chip:hover { background: rgba(56,212,245,0.1); }
+  .project-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 1.2rem; border-radius: 20px; background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; text-decoration: none; white-space: nowrap; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 2; }
+  .project-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,61,166,0.35); }
+  .project-btn.disabled { background: rgba(245,240,255,0.07); color: rgba(245,240,255,0.3); border: 1px solid rgba(245,240,255,0.1); cursor: default; pointer-events: none; }
   .project-year { font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(245,240,255,0.25); text-transform: uppercase; white-space: nowrap; }
 
   #contact { border-top: 1px solid var(--border); text-align: center; }
@@ -301,6 +305,7 @@
   <p class="section-label">Work</p>
   <h2 class="section-title">Research <em>Projects</em></h2>
   <div class="projects-list">
+
     <div class="project-card reveal">
       <div class="project-body">
         <span class="project-number">01</span>
@@ -310,15 +315,18 @@
           <li>Applied non-parametric statistical tests to examine user rating distributions across streaming services.</li>
           <li>Designed an entertaining presentation with data visualizations to deliver project outcomes to a diverse audience.</li>
         </ul>
-        <div class="project-chips">
-          <a class="contact-link" href="/project1.pdf" target="_blank" style="margin-top:1rem;display:inline-block;">View My Project →</a>
-          <span class="chip">Python</span>
-          <span class="chip">Statistical Testing</span>
-          <span class="chip">Data Visualization</span>
+        <div class="project-footer">
+          <div class="project-chips">
+            <span class="chip">Python</span>
+            <span class="chip">Statistical Testing</span>
+            <span class="chip">Data Visualization</span>
+          </div>
+          <a class="project-btn" href="/project1.pdf" target="_blank">View My Project ↗</a>
         </div>
       </div>
       <div class="project-side"><div class="project-year">NYU</div></div>
     </div>
+
     <div class="project-card reveal">
       <div class="project-body">
         <span class="project-number">02</span>
@@ -328,14 +336,18 @@
           <li>Developed a rating system to identify the highest multivariate correlations in RStudio.</li>
           <li>Presented findings to a class of 50 on implications of social media behavior using R and Tableau visualizations.</li>
         </ul>
-        <div class="project-chips">
-          <span class="chip">R / RStudio</span>
-          <span class="chip">Tableau</span>
-          <span class="chip">Multivariate Analysis</span>
+        <div class="project-footer">
+          <div class="project-chips">
+            <span class="chip">R / RStudio</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">Multivariate Analysis</span>
+          </div>
+          <a class="project-btn" href="/project2.pdf" target="_blank">View Slides ↗</a>
         </div>
       </div>
       <div class="project-side"><div class="project-year">UCSD</div></div>
     </div>
+
     <div class="project-card reveal">
       <div class="project-body">
         <span class="project-number">03</span>
@@ -345,15 +357,19 @@
           <li>Performed multivariate analysis using hundreds of data points in SPSS.</li>
           <li>Reported findings of end-to-end research and future considerations to a panel of professors.</li>
         </ul>
-        <div class="project-chips">
-          <span class="chip">SPSS</span>
-          <span class="chip">Qualtrics</span>
-          <span class="chip">Regression Analysis</span>
-          <span class="chip">Research Design</span>
+        <div class="project-footer">
+          <div class="project-chips">
+            <span class="chip">SPSS</span>
+            <span class="chip">Qualtrics</span>
+            <span class="chip">Regression Analysis</span>
+            <span class="chip">Research Design</span>
+          </div>
+          <a class="project-btn disabled">Coming Soon</a>
         </div>
       </div>
       <div class="project-side"><div class="project-year">UCSD</div></div>
     </div>
+
   </div>
 </section>
 
@@ -365,7 +381,7 @@
     <a class="contact-link" href="mailto:ashley@example.com">ashley@example.com</a>
     <a class="contact-link" href="https://www.linkedin.com/in/ashleytewari" target="_blank">LinkedIn</a>
     <a class="contact-link" href="#">GitHub</a>
-    <a class="contact-link" href="/resume.pdf">Resume</a>
+    <a class="contact-link" href="/resume.pdf" target="_blank">Resume</a>
   </div>
 </section>
 
