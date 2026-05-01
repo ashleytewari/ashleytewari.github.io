@@ -22,7 +22,6 @@
   body { background: var(--bg); color: var(--fg); font-family: 'DM Mono', monospace; overflow-x: hidden; cursor: none; }
   a, button, input, select, textarea { cursor: none; }
 
-  /* CUSTOM CURSOR — hidden on touch devices */
   #cursor-arrow { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; display: none; }
   #cursor-canvas { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; display: none; }
   @media (pointer: fine) {
@@ -147,6 +146,8 @@
   .project-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 1.2rem; border-radius: 20px; background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; text-decoration: none; white-space: nowrap; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 2; }
   .project-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,61,166,0.35); }
   .project-year { font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(245,240,255,0.25); text-transform: uppercase; white-space: nowrap; }
+  .badge-in-progress { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); border: 1px solid rgba(56,212,245,0.35); padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.75rem; vertical-align: middle; position: relative; top: -2px; }
+  .badge-in-progress::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--sky); display: inline-block; animation: pulse 2s ease-in-out infinite; }
 
   #contact { border-top: 1px solid var(--border); text-align: center; }
   .contact-big { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 300; font-style: italic; color: rgba(245,240,255,0.5); margin-bottom: 0.5rem; line-height: 1.1; }
@@ -176,7 +177,6 @@
 </head>
 <body>
 
-<!-- Custom cursor: arrow + spotlight (desktop/mouse only) -->
 <canvas id="cursor-canvas"></canvas>
 <div id="cursor-arrow">
   <svg width="24" height="28" viewBox="0 0 24 28" style="filter:drop-shadow(0 0 6px #ff3da6) drop-shadow(0 0 10px rgba(168,85,247,0.55))">
@@ -335,6 +335,8 @@
   <p class="section-label">Work</p>
   <h2 class="section-title">Research <em>Projects</em></h2>
   <div class="projects-list">
+
+    <!-- Project 01 -->
     <div class="project-card reveal">
       <div class="project-body">
         <span class="project-number">01</span>
@@ -351,9 +353,29 @@
       </div>
       <div class="project-side"><div class="project-year">NYU</div></div>
     </div>
+
+    <!-- Project 02 (NEW) -->
     <div class="project-card reveal">
       <div class="project-body">
         <span class="project-number">02</span>
+        <h3 class="project-title">Algorithmic Data and Bias Audit in Python <span class="badge-in-progress">In Progress</span></h3>
+        <ul class="project-bullets">
+          <li>Auditing a Kaggle competition-winning model that predicts problematic internet usage in youth audiences.</li>
+          <li>Profiling input data quality, integrity, and fairness across demographic subpopulations including age and sex.</li>
+          <li>Evaluating bias and accuracy across LightGBM, XGBoost, and CatBoost ensemble regressors.</li>
+        </ul>
+        <div class="project-footer">
+          <div class="project-chips"><span class="chip">Audience Analysis</span><span class="chip">Machine Learning</span><span class="chip">Audit</span><span class="chip">Data Ethics</span></div>
+          <a class="project-btn" href="/project2draft.pdf" target="_blank">View My Draft ↗</a>
+        </div>
+      </div>
+      <div class="project-side"><div class="project-year">NYU</div></div>
+    </div>
+
+    <!-- Project 03 -->
+    <div class="project-card reveal">
+      <div class="project-body">
+        <span class="project-number">03</span>
         <h3 class="project-title">Personality & Digital Consumer Behavior</h3>
         <ul class="project-bullets">
           <li>Created a model that determines the correlations between personality traits and digital consumer behavior patterns.</li>
@@ -367,9 +389,11 @@
       </div>
       <div class="project-side"><div class="project-year">UCSD</div></div>
     </div>
+
+    <!-- Project 04 -->
     <div class="project-card reveal">
       <div class="project-body">
-        <span class="project-number">03</span>
+        <span class="project-number">04</span>
         <h3 class="project-title">Moral Perception & Human Data Modeling</h3>
         <ul class="project-bullets">
           <li>Built models using regression analysis and linear models on large sets of human data focused on moral perceptions.</li>
@@ -383,6 +407,7 @@
       </div>
       <div class="project-side"><div class="project-year">UCSD</div></div>
     </div>
+
   </div>
 </section>
 
