@@ -146,7 +146,7 @@
   .project-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 1.2rem; border-radius: 20px; background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; text-decoration: none; white-space: nowrap; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 2; }
   .project-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,61,166,0.35); }
   .project-year { font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(245,240,255,0.25); text-transform: uppercase; white-space: nowrap; }
-  .badge-in-progress { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); border: 1px solid rgba(56,212,245,0.35); padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.75rem; vertical-align: middle; position: relative; top: -2px; }
+  .badge-in-progress { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); border: 1px solid rgba(56,212,245,0.35); padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.75rem; vertical-align: middle; position: relative; top: -2px; -webkit-text-fill-color: var(--sky); background: none; }
   .badge-in-progress::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--sky); display: inline-block; animation: pulse 2s ease-in-out infinite; }
 
   #contact { border-top: 1px solid var(--border); text-align: center; }
@@ -354,28 +354,10 @@
       <div class="project-side"><div class="project-year">NYU</div></div>
     </div>
 
-    <!-- Project 02 (NEW) -->
+    <!-- Project 02 -->
     <div class="project-card reveal">
       <div class="project-body">
         <span class="project-number">02</span>
-        <h3 class="project-title">Algorithmic Data and Bias Audit <span style="-webkit-text-fill-color:initial;background:none;"><span class="badge-in-progress">In Progress</span></span></h3>
-        <ul class="project-bullets">
-          <li>Auditing a Kaggle competition-winning model that predicts problematic internet usage in youth audiences.</li>
-          <li>Profiling input data quality, integrity, and fairness across demographic subpopulations including age and sex.</li>
-          <li>Evaluating bias and accuracy across LightGBM, XGBoost, and CatBoost ensemble regressors.</li>
-        </ul>
-        <div class="project-footer">
-          <div class="project-chips"><span class="chip">Python</span><span class="chip">Audience Analysis</span><span class="chip">Machine Learning</span><span class="chip">Audit</span><span class="chip">Data Ethics</span></div>
-          <a class="project-btn" href="/project2draft.pdf" target="_blank">View My Draft ↗</a>
-        </div>
-      </div>
-      <div class="project-side"><div class="project-year">NYU</div></div>
-    </div>
-
-    <!-- Project 03 -->
-    <div class="project-card reveal">
-      <div class="project-body">
-        <span class="project-number">03</span>
         <h3 class="project-title">Personality & Digital Consumer Behavior</h3>
         <ul class="project-bullets">
           <li>Created a model that determines the correlations between personality traits and digital consumer behavior patterns.</li>
@@ -388,6 +370,24 @@
         </div>
       </div>
       <div class="project-side"><div class="project-year">UCSD</div></div>
+    </div>
+
+    <!-- Project 03 -->
+    <div class="project-card reveal">
+      <div class="project-body">
+        <span class="project-number">03</span>
+        <h3 class="project-title">Algorithmic Data and Bias Audit in Python <span style="-webkit-text-fill-color:initial;background:none;"><span class="badge-in-progress">In Progress</span></span></h3>
+        <ul class="project-bullets">
+          <li>Auditing a Kaggle competition-winning model that predicts problematic internet usage in youth audiences.</li>
+          <li>Profiling input data quality, integrity, and fairness across demographic subpopulations including age and sex.</li>
+          <li>Evaluating bias and accuracy across LightGBM, XGBoost, and CatBoost ensemble regressors.</li>
+        </ul>
+        <div class="project-footer">
+          <div class="project-chips"><span class="chip">Audience Analysis</span><span class="chip">Machine Learning</span><span class="chip">Audit</span><span class="chip">Data Ethics</span></div>
+          <a class="project-btn" href="/project2draft.pdf" target="_blank">View My Draft ↗</a>
+        </div>
+      </div>
+      <div class="project-side"><div class="project-year">NYU</div></div>
     </div>
 
     <!-- Project 04 -->
