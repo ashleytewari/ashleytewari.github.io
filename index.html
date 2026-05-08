@@ -145,6 +145,8 @@
   .chip:hover { background: rgba(56,212,245,0.1); }
   .project-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 1.2rem; border-radius: 20px; background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; text-decoration: none; white-space: nowrap; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 2; }
   .project-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,61,166,0.35); }
+  .project-btn-outline { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 1.2rem; border-radius: 20px; background: none; border: 1px solid rgba(56,212,245,0.4); color: var(--sky); text-decoration: none; white-space: nowrap; transition: transform 0.2s, background 0.2s, border-color 0.2s; position: relative; z-index: 2; }
+  .project-btn-outline:hover { transform: translateY(-2px); background: rgba(56,212,245,0.08); border-color: var(--sky); }
   .project-year { font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(245,240,255,0.25); text-transform: uppercase; white-space: nowrap; }
   .badge-in-progress { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); border: 1px solid rgba(56,212,245,0.35); padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.75rem; vertical-align: middle; position: relative; top: -2px; -webkit-text-fill-color: var(--sky); background: none; }
   .badge-in-progress::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--sky); display: inline-block; animation: pulse 2s ease-in-out infinite; }
@@ -384,7 +386,10 @@
         </ul>
         <div class="project-footer">
           <div class="project-chips"><span class="chip">Python</span><span class="chip">Audience Analysis</span><span class="chip">Machine Learning</span><span class="chip">Audit</span><span class="chip">Data Ethics</span></div>
-          <a class="project-btn" href="/project2draft.pdf" target="_blank">View My Draft ↗</a>
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+            <a class="project-btn" href="/project2draft.pdf" target="_blank">View Draft ↗</a>
+            <a class="project-btn-outline" href="/project2slides.pdf" target="_blank">View Slides ↗</a>
+          </div>
         </div>
       </div>
       <div class="project-side"><div class="project-year">NYU</div></div>
