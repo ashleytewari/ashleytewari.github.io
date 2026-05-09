@@ -130,6 +130,15 @@
 
   #projects { border-top: 1px solid var(--border); }
   .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .project-subsection { margin-bottom: 4rem; }
+  .project-subsection-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+  .project-subsection-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,255,0.35); white-space: nowrap; }
+  .project-subsection-line { flex: 1; height: 1px; background: var(--border); }
+  .project-subsection-badge { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 20px; white-space: nowrap; }
+  .badge-behavioral { border: 1px solid rgba(255,61,166,0.35); color: var(--pink); }
+  .badge-computational { border: 1px solid rgba(56,212,245,0.35); color: var(--sky); }
+
   .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; position: relative; overflow: hidden; }
   .project-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,61,166,0.06), rgba(56,212,245,0.04), rgba(168,85,247,0.06)); opacity: 0; transition: opacity 0.3s; }
   .project-card:hover { border-color: var(--purple); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(168,85,247,0.15); }
@@ -336,84 +345,121 @@
 <section id="projects">
   <p class="section-label">Work</p>
   <h2 class="section-title">Research <em>Projects</em></h2>
-  <div class="projects-list">
 
-    <!-- Project 01 -->
-    <div class="project-card reveal">
-      <div class="project-body">
-        <span class="project-number">01</span>
-        <h3 class="project-title">Film & Streaming Platform Ratings Analysis</h3>
-        <ul class="project-bullets">
-          <li>Analyzed user ratings across streaming platforms to discover correlations between film attributes and audience reception.</li>
-          <li>Applied non-parametric statistical tests to examine user rating distributions across streaming services.</li>
-          <li>Designed an actionable presentation with data visualizations to deliver project outcomes to a diverse audience.</li>
-        </ul>
-        <div class="project-footer">
-          <div class="project-chips"><span class="chip">Python</span><span class="chip">Statistical Testing</span><span class="chip">Data Visualization</span></div>
-          <a class="project-btn" href="/project1.pdf" target="_blank">View My Project ↗</a>
-        </div>
-      </div>
-      <div class="project-side"><div class="project-year">NYU</div></div>
+  <!-- Behavioral & Social Research -->
+  <div class="project-subsection">
+    <div class="project-subsection-header reveal">
+      <div class="project-subsection-line"></div>
+      <span class="project-subsection-title">Behavioral &amp; Social Research</span>
+      <span class="project-subsection-badge badge-behavioral">Human Behavior</span>
+      <div class="project-subsection-line"></div>
     </div>
+    <div class="projects-list">
 
-    <!-- Project 02 -->
-    <div class="project-card reveal">
-      <div class="project-body">
-        <span class="project-number">02</span>
-        <h3 class="project-title">Personality & Digital Consumer Behavior</h3>
-        <ul class="project-bullets">
-          <li>Created a model that determines the correlations between personality traits and digital consumer behavior patterns.</li>
-          <li>Developed a rating system to identify the highest multivariate correlations in RStudio.</li>
-          <li>Presented findings to a class of 50 on implications of social media behavior using R and Tableau visualizations.</li>
-        </ul>
-        <div class="project-footer">
-          <div class="project-chips"><span class="chip">R / RStudio</span><span class="chip">Tableau</span><span class="chip">Multivariate Analysis</span></div>
-          <a class="project-btn" href="/project2.pdf" target="_blank">View My Paper ↗</a>
-        </div>
-      </div>
-      <div class="project-side"><div class="project-year">UCSD</div></div>
-    </div>
-
-    <!-- Project 03 -->
-    <div class="project-card reveal">
-      <div class="project-body">
-        <span class="project-number">03</span>
-        <h3 class="project-title">Algorithmic Data and Bias Audit <span style="-webkit-text-fill-color:initial;background:none;"><span class="badge-in-progress">In Progress</span></span></h3>
-        <ul class="project-bullets">
-          <li>Auditing a Kaggle competition-winning model that predicts problematic internet usage in youth audiences.</li>
-          <li>Profiling input data quality, integrity, and fairness across demographic subpopulations including age and sex.</li>
-          <li>Evaluating bias and accuracy across LightGBM, XGBoost, and CatBoost ensemble regressors.</li>
-        </ul>
-        <div class="project-footer">
-          <div class="project-chips"><span class="chip">Python</span><span class="chip">Audience Analysis</span><span class="chip">Machine Learning</span><span class="chip">Audit</span><span class="chip">Data Ethics</span></div>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-            <a class="project-btn" href="/project2report.pdf" target="_blank">View My Report ↗</a>
-            <a class="project-btn-outline" href="/project2slides.pdf" target="_blank">View My Slides ↗</a>
+      <div class="project-card reveal">
+        <div class="project-body">
+          <span class="project-number">01</span>
+          <h3 class="project-title">Film & Streaming Platform Ratings Analysis</h3>
+          <ul class="project-bullets">
+            <li>Analyzed user ratings across streaming platforms to discover correlations between film attributes and audience reception.</li>
+            <li>Applied non-parametric statistical tests to examine user rating distributions across streaming services.</li>
+            <li>Designed an actionable presentation with data visualizations to deliver project outcomes to a diverse audience.</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-chips"><span class="chip">Python</span><span class="chip">Statistical Testing</span><span class="chip">Data Visualization</span></div>
+            <a class="project-btn" href="/project1.pdf" target="_blank">View My Project ↗</a>
           </div>
         </div>
+        <div class="project-side"><div class="project-year">NYU</div></div>
       </div>
-      <div class="project-side"><div class="project-year">NYU</div></div>
-    </div>
 
-    <!-- Project 04 -->
-    <div class="project-card reveal">
-      <div class="project-body">
-        <span class="project-number">04</span>
-        <h3 class="project-title">Moral Perception & Human Data Modeling</h3>
-        <ul class="project-bullets">
-          <li>Built models using regression analysis and linear models on large sets of human data focused on moral perceptions.</li>
-          <li>Performed multivariate analysis using hundreds of data points in SPSS.</li>
-          <li>Reported findings of end-to-end research and future considerations to a panel of professors.</li>
-        </ul>
-        <div class="project-footer">
-          <div class="project-chips"><span class="chip">SPSS</span><span class="chip">Qualtrics</span><span class="chip">Regression Analysis</span><span class="chip">Research Design</span></div>
-          <a class="project-btn" href="/project3.pdf" target="_blank">View My Poster ↗</a>
+      <div class="project-card reveal">
+        <div class="project-body">
+          <span class="project-number">02</span>
+          <h3 class="project-title">Personality & Digital Consumer Behavior</h3>
+          <ul class="project-bullets">
+            <li>Created a model that determines the correlations between personality traits and digital consumer behavior patterns.</li>
+            <li>Developed a rating system to identify the highest multivariate correlations in RStudio.</li>
+            <li>Presented findings to a class of 50 on implications of social media behavior using R and Tableau visualizations.</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-chips"><span class="chip">R / RStudio</span><span class="chip">Tableau</span><span class="chip">Multivariate Analysis</span></div>
+            <a class="project-btn" href="/project2.pdf" target="_blank">View My Paper ↗</a>
+          </div>
         </div>
+        <div class="project-side"><div class="project-year">UCSD</div></div>
       </div>
-      <div class="project-side"><div class="project-year">UCSD</div></div>
-    </div>
 
+      <div class="project-card reveal">
+        <div class="project-body">
+          <span class="project-number">03</span>
+          <h3 class="project-title">Algorithmic Data and Bias Audit <span style="-webkit-text-fill-color:initial;background:none;"><span class="badge-in-progress">In Progress</span></span></h3>
+          <ul class="project-bullets">
+            <li>Auditing a Kaggle competition-winning model that predicts problematic internet usage in youth audiences.</li>
+            <li>Profiling input data quality, integrity, and fairness across demographic subpopulations including age and sex.</li>
+            <li>Evaluating bias and accuracy across LightGBM, XGBoost, and CatBoost ensemble regressors.</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-chips"><span class="chip">Python</span><span class="chip">Audience Analysis</span><span class="chip">Machine Learning</span><span class="chip">Audit</span><span class="chip">Data Ethics</span></div>
+            <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+              <a class="project-btn" href="/project2report.pdf" target="_blank">View My Report ↗</a>
+              <a class="project-btn-outline" href="/project2slides.pdf" target="_blank">View My Slides ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-side"><div class="project-year">NYU</div></div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-body">
+          <span class="project-number">04</span>
+          <h3 class="project-title">Moral Perception & Human Data Modeling</h3>
+          <ul class="project-bullets">
+            <li>Built models using regression analysis and linear models on large sets of human data focused on moral perceptions.</li>
+            <li>Performed multivariate analysis using hundreds of data points in SPSS.</li>
+            <li>Reported findings of end-to-end research and future considerations to a panel of professors.</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-chips"><span class="chip">SPSS</span><span class="chip">Qualtrics</span><span class="chip">Regression Analysis</span><span class="chip">Research Design</span></div>
+            <a class="project-btn" href="/project3.pdf" target="_blank">View My Poster ↗</a>
+          </div>
+        </div>
+        <div class="project-side"><div class="project-year">UCSD</div></div>
+      </div>
+
+    </div>
   </div>
+
+  <!-- Computational & Applied -->
+  <div class="project-subsection">
+    <div class="project-subsection-header reveal">
+      <div class="project-subsection-line"></div>
+      <span class="project-subsection-title">Computational &amp; Applied</span>
+      <span class="project-subsection-badge badge-computational">Methods in Practice</span>
+      <div class="project-subsection-line"></div>
+    </div>
+    <div class="projects-list">
+
+      <div class="project-card reveal">
+        <div class="project-body">
+          <span class="project-number">05</span>
+          <h3 class="project-title">NYC Subway Overcrowding & Fare Evasion</h3>
+          <ul class="project-bullets">
+            <li>Built supervised ML models to predict overcrowding and fare evasion patterns across NYC subway lines.</li>
+            <li>Analyzed ridership and fare data to identify high-risk stations and peak-period mitigation opportunities.</li>
+            <li>Delivered actionable recommendations for transit policy based on model outputs and feature importance.</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-chips"><span class="chip">Python</span><span class="chip">Supervised ML</span><span class="chip">Predictive Modeling</span><span class="chip">Transit Data</span></div>
+            <a class="project-btn" href="/subway-project.pdf" target="_blank">View My Project ↗</a>
+          </div>
+        </div>
+        <div class="project-side"><div class="project-year">NYU</div></div>
+      </div>
+
+    </div>
+  </div>
+
 </section>
 
 <section id="contact">
